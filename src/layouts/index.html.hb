@@ -59,58 +59,21 @@
 
 	<div class="container dark-tile-bg padded">
 	<div class="row clearfix quickinfo">
-		<div class="col4">
+		<div class="col8">
 			{{{document.content.quickinfo-1}}}
 		</div>
-		<div class="col4">
-			{{{document.content.quickinfo-2}}}
-		</div>
 		<div class="col4 last">
-			{{{document.content.quickinfo-3}}}	
-		</div>
-	</div>
-
-	<div class="row" id="device-table">
-		<div class="col12">
-			<table>
-			    <thead>
-			        <tr>
-			            <th>Manufacturer</th>
-			            <th>Model</th>
-			            <th>OS / Version</th>
-			            <th>Contributor</th>
-			        </tr>
-			    </thead>
-			    <tbody>
-			        {{#each document.devices}} 
-			            <tr>
-			                <td>{{this.manufacturer}}</td>
-			                <td><span class="{{this.type}}"></span>{{this.model}}</td>
-			                <td><span class="{{#lowercase this.os}}{{/lowercase}}"></span>{{this.os}} {{this.version}}</td>
-			                <td>{{this.contributor}}</td>
-			            </tr>
-			        {{/each}}
-			    </tbody>
-			</table>
+			{{{document.content.quickinfo-2}}}
 		</div>
 	</div>
 	</div>
 
 	<div class="container padded">
-	<div class="contact row clearfix">
-		<div class="col6">
-			{{{document.content.contact}}}
-			<ul>
-				<li><b>Twitter:</b> <a href="http://www.twitter.com/{{site.twitter}}">@{{site.twitter}}</a></li>
-				<li><b>Telefon:</b> {{{site.phone}}}</li>
-				<li><b>E-Mail:</b> <a href="mailto:{{{site.email}}}">{{{site.email}}}</a></li>
-			</ul>
+		<div class="row">
+			<div class="col12">
+				<h2>Open Device Labs in Germany</h2>
+			</div>
 		</div>
-
-		<div class="col6 last">
-			{{{document.content.google-maps}}}
-		</div>
-	</div>
 	</div>
 
 	<div class="container dark-tile-bg padded">

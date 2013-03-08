@@ -2,6 +2,7 @@ module.exports =
     ## Put your general Website information here!
     templateData:
         site:
+            title: "Open Device Labs Germany"
             twitter: "username"
             facebook: "https://www.facebook.com/example"
             email: "hello@example.com"
@@ -11,13 +12,25 @@ module.exports =
     plugins:
         handlebars:
             helpers:
-                getBlock: (type, additional...) ->
+                getBlock: (type, prefix, additional...) ->
                     additional.pop()
-                    @getBlock(type).add(additional).toHTML()
+                    newPaths = (prefix+path for path in additional)
+                    @getBlock(type).add(newPaths).toHTML()
 
                 lowercase: (string) ->
                     string.toLowerCase()
 
                 safeurl: (url) ->
                     encodeURI(url)
+
+    events:
+        writeAfter: (opts, next) ->
+            balUtil = require('bal-util')
+            docpad = @docpad
+            rootPath = docpad.config.rootPath
+
+            command = ["#{rootPath}/node_modules/grunt-cli/bin/grunt", 'default']
+            balUtil.spawn(command, {cwd:rootPath, output:true}, next)
+
+            @
 

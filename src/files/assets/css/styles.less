@@ -44,7 +44,7 @@ nav {
 }
 
 header {
-	background: @hero-grey url('../img/background.png') repeat;
+	background: @hero-grey url('assets/img/background.png') repeat;
 	text-align: center;
 
 	img {
@@ -196,7 +196,8 @@ a {
 .language-switch {
 	color: @hero-grey;
 	float: right;
-	margin-right: 5em;
+	position: absolute;
+	right: 5em;
 
 	a {
 		color: @hero-grey;
@@ -247,7 +248,7 @@ th, td {
 }
 
 
-.phone, .tablet, .ios, .android {
+.phone, .tablet, .ios, .android, .os, .symbian {
 	display: inline-block;
 	width: 36px;
 	height: 38px;
@@ -257,20 +258,28 @@ th, td {
 }
 
 .phone {
-	background: url('../img/phone.svg') no-repeat center;
+	background: url('assets/img/phone.svg') no-repeat center;
 }
 
 .tablet {
-	background: url('../img/tablet.svg') no-repeat center;
+	background: url('assets/img/tablet.svg') no-repeat center;
 }
 
 .ios {
-	background: url('../img/ios.svg') no-repeat center;
-}
-.android {
-	background: url('../img/android.svg') no-repeat center;
+	background: url('assets/img/ios.svg') no-repeat center;
 }
 
+.os {
+	background: url('assets/img/blackberry.svg') no-repeat center;
+}
+
+.android {
+	background: url('assets/img/android.svg') no-repeat center;
+}
+
+.symbian {
+	background: url('assets/img/symbian.svg') no-repeat center;
+}
 
 tbody tr:nth-child(2n) {
 	background-color: @section-light;

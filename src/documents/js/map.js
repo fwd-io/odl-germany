@@ -73,6 +73,7 @@ function createCircle(city) {
     circle.setAttribute('r', 10);
     circle.setAttribute('fill', '#e47a52');
     circle.setAttribute('class', 'hotspot')
+    circle.style.cursor = "pointer";
     svg.getElementById('myGroup').ownerSVGElement.appendChild(circle);
     city.circle = circle;
 }

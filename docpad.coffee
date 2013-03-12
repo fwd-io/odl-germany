@@ -3,8 +3,8 @@ module.exports =
     templateData:
         site:
             title: "Open Device Labs Germany"
-            twitter: "username"
-            facebook: "https://www.facebook.com/example"
+            twitter: "odl_hh"
+            facebook: "https://www.facebook.com/OpenDeviceLabHamburg"
             email: "hello@example.com"
             phone: "1234 5678"
 
@@ -29,7 +29,7 @@ module.exports =
             docpad = @docpad
             rootPath = docpad.config.rootPath
 
-            command = ["#{rootPath}/node_modules/grunt-cli/bin/grunt", 'default']
+            command = ["#{rootPath}/node_modules/grunt-cli/bin/grunt", 'dev']
             balUtil.spawn(command, {cwd:rootPath, output:true}, next)
 
             @

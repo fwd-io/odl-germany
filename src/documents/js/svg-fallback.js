@@ -1,5 +1,4 @@
-<script>
-    if(!Modernizr.svg)
+if(!Modernizr.svg)
     {
         $("img").each(function() {
             var oldSrc = $(this).attr("src");
@@ -7,4 +6,3 @@
             $(this).attr("src", newSrc);
         });
     }
-</script>

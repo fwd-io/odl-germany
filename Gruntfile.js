@@ -1,10 +1,14 @@
 module.exports = function(grunt) {
 
+
   grunt.initConfig({
     uglify: {
+        options: {
+          force: true
+        },
         dist: {
             files: {
-                'out/js/twitter.js': ['out/js/twitter.js']
+                'out/js/main.js': ['out/js/twitter.js', 'out/js/svg-fallback.js', 'out/js/map.js']
             }
         }
     },
@@ -18,7 +22,7 @@ module.exports = function(grunt) {
     },
 
     clean: {
-        after: ['out/assets/css'],
+        after: ['out/assets/css', 'out/js/svg-fallback.js', 'out/js/map.js', 'out/js/twitter.js'],
         before: ['out/main.js', 'out/main.css']
     }
   });
@@ -28,5 +32,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   // Default task.
-  grunt.registerTask('default', ['clean:before', 'uglify', 'cssmin', 'clean:after']);
+  grunt.registerTask('default', ['clean:before', 'cssmin', 'uglify', 'clean:after']);
+
+  // Development task
+  grunt.registerTask('dev', ['clean:before', 'cssmin', 'uglify']);
 };

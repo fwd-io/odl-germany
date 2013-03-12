@@ -1,0 +1,17 @@
+<svg 
+                     version="1.1" 
+                     xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink"
+                     width="200" height="200"
+                     style="background-color: #D2B48C;">
+                   <g 
+                      id="myGroup" 
+                      fill="blue" 
+                      style="font-size: 18px; text-anchor: middle; font-family: serif;">
+                      <circle
+                         id="myCircle" 
+                         cx="100" cy="75" r="50"
+                         stroke="firebrick"
+                         stroke-width="3" />
+                   </g>
+                </svg>

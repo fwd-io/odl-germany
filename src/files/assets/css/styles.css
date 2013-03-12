@@ -87,8 +87,49 @@ button.donate img {
   top: -0.4em;
   left: 1em;
 }
-#device-table {
-  margin-top: 4em;
+.map-container {
+  position: relative;
+}
+.map {
+  margin: 0 auto;
+  display: block;
+}
+.tooltip {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 3px;
+  border: 2px solid #d9e7e8;
+}
+.tooltip h3 {
+  padding: 0 60px 10px 30px;
+  border-bottom: 1px solid #d9e7e8;
+}
+.tooltip ul {
+  padding: 0 60px 0 30px;
+}
+.tooltip:after,
+.tooltip:before {
+  left: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.tooltip:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-left-color: rgba(255, 255, 255, 0.78);
+  border-width: 15px;
+  top: 80px;
+  margin-top: -15px;
+}
+.tooltip:before {
+  border-color: rgba(217, 231, 232, 0);
+  border-left-color: #d9e7e8;
+  border-width: 18px;
+  top: 80px;
+  margin-top: -18px;
 }
 .contact ul {
   margin: 2em 0 0;
@@ -176,6 +217,7 @@ h2 {
 }
 p,
 h2,
+h3,
 table,
 ul {
   color: #555c5c;

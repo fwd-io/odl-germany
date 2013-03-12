@@ -7,6 +7,7 @@
 	<title>{{site.title}}</title>
 	{{#getBlock "styles" document.pathToRoot "/main.css"}}{{/getBlock}}
 	{{#getBlock "meta"}}{{/getBlock}}
+	<script src="{{document.pathToRoot}}/js/vendor/svg.js" data-path="{{document.pathToRoot}}/js/vendor"></script>
 	<script src="{{document.pathToRoot}}/js/vendor/modernizr.js"></script>
 </head>
 
@@ -72,6 +73,9 @@
 		<div class="row">
 			<div class="col12">
 				<h2>Open Device Labs in Germany</h2>
+				<div class="map-container">
+					<object class="map" data="{{document.pathToRoot}}/assets/img/map.svg"></object>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -110,7 +114,7 @@
 <!-- local fallback -->
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1-8-3-min.js"><\/script>')</script>
 
-{{#getBlock "scripts" document.pathToRoot "/js/twitter.js" "/js/svg-fallback.js"}}{{/getBlock}}
+{{#getBlock "scripts" document.pathToRoot "/js/main.js"}}{{/getBlock}}
 
 </body>
 </html>

@@ -113,10 +113,9 @@ function createTooltip(city) {
 }
 
 function setTooltipPosition(city) {
-    var offset = ($(".map-container").css("width").match(/\d+/)/2)-($(".map").css("width").match(/\d+/)/2);
+    var offset = ($(".map-container").width()/2)-($(".map").width()/2);
     offset -= offset % 1;
     tooltip = city.tooltip;
-    tooltip.style.left = (offset + city.position.x - $(tooltip).width() - 20) + "px";
-    console.log($(tooltip).width());
-    tooltip.style.top = (city.position.y - 81) + "px";
+    tooltip.style.left = (offset + city.position.x * ($(".map").width()/500) - $(tooltip).width() - 20) + "px";
+    tooltip.style.top = (city.position.y * ($(".map").height()/660) - 81) + "px";
 }

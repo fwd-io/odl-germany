@@ -41,8 +41,6 @@ window.onsvgload = function() {
             createCircle(city);
             createTooltip(city);
 
-            city.circle.onclick = getClickFunction(city);
-
             function getClickFunction(city) {
                 return function() {
                     if (city.tooltip.style.visibility === "hidden") {
@@ -53,6 +51,7 @@ window.onsvgload = function() {
                     }
                 }
             }
+            city.circle.onclick = getClickFunction(city);
         }
     }
 
@@ -117,5 +116,5 @@ function setTooltipPosition(city) {
     offset -= offset % 1;
     tooltip = city.tooltip;
     tooltip.style.left = (offset + city.position.x * ($(".map").width()/500) - $(tooltip).width() - 20) + "px";
-    tooltip.style.top = (city.position.y * ($(".map").height()/660) - 81) + "px";
+    tooltip.style.top = (city.position.y * ($(".map").height()/660) - 89) + "px";
 }

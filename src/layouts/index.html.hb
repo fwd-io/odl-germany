@@ -5,10 +5,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{site.title}}</title>
-	{{#getBlock "styles" document.pathToRoot "/main.css"}}{{/getBlock}}
+    {{#getBlock "styles" document.pathToRoot "/assets/css/styles.css"}}{{/getBlock}}
 	{{#getBlock "meta"}}{{/getBlock}}
 	<script src="{{document.pathToRoot}}/js/vendor/svg.js" data-path="{{document.pathToRoot}}/js/vendor"></script>
-	<script src="{{document.pathToRoot}}/js/vendor/modernizr.js"></script>
+    <script src="{{document.pathToRoot}}/assets/js/vendor/modernizr.js"></script>
 </head>
 
 <body>
@@ -51,7 +51,7 @@
 					<a href="http://www.twitter.com/{{site.twitter}}">@{{site.twitter}}</a>
 				</li>
 				<li>
-					<img src="{{document.pathToRoot}}/assets/img/mail.svg" width="16" height="16">
+					<img src="{{document.pathToRoot}}/assets/img/mail.svg" width="22" height="16">
 					<a href="mailto:{{{site.email}}}">{{{site.email}}}</a>
 				</li>
 			</ul>
@@ -80,41 +80,41 @@
 		</div>
 	</div>
 
-	<div class="container dark-tile-bg padded">
-	<div class="row clearfix">
-		<div id="twitter" class="col6">
-			<h2>Twitter: @{{site.twitter}}</h2>
-		</div>
-		<div class="col6 last">
-			<h2>Facebook</h2>
-			<iframe src="http://www.facebook.com/plugins/likebox.php?href={{#safeurl site.facebook}}{{/safeurl}}&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;border_color&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:98%;" allowTransparency="true"></iframe>
-		</div>
-	</div>
-	</div>
-	{{#if document.partner-logos}}
-		<div class="container padded">
-			<div class="row">
-				<div class="col12">
-					<h2>Meet our Partners</h2>
-				</div>
-			</div>
-			<div class="row clearfix">
-				{{#each document.partner-logos}}
-					<div class="col3 last"><img src="{{this}}" alt="" class="center"></div>
-				{{/each}}
-			</div>
-		</div>
-	{{/if}}
+    <div class="container dark-tile-bg padded">
+      <div class="row clearfix">
+        <div id="twitter" class="col6">
+          <h2>Twitter: @{{site.twitter}}</h2>
+        </div>
+        <div class="col6 last">
+          <h2>Facebook</h2>
+          <iframe src="//www.facebook.com/plugins/likebox.php?href={{#safeurl site.facebook}}{{/safeurl}}&amp;width=292&amp;height=258&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;border_color&amp;header=false&amp;appId={{site.appid}}" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:300px;" allowTransparency="true"></iframe>
+        </div>
+      </div>
+    </div>
+    {{#if document.partner-logos}}
+      <div class="container padded">
+        <div class="row">
+          <div class="col12">
+            <h2>Meet our Partners</h2>
+          </div>
+        </div>
+        <div class="row clearfix">
+          {{#each document.partner-logos}}
+            <div class="col3 last"><img src="{{this}}" alt="" class="center"></div>
+          {{/each}}
+        </div>
+      </div>
+    {{/if}}
 
-	<footer>
-		{{{document.content.footer}}}
-	</footer>
+    <footer>
+      {{{document.content.footer}}}
+    </footer>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<!-- local fallback -->
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1-8-3-min.js"><\/script>')</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!-- local fallback -->
+  <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.1.9.1.min.js"><\/script>')</script>
 
-{{#getBlock "scripts" document.pathToRoot "/js/main.js"}}{{/getBlock}}
+  {{#getBlock "scripts" document.pathToRoot "/assets/js/main.js" "/assets/js/map.js"}}{{/getBlock}}
 
-</body>
+  </body>
 </html>

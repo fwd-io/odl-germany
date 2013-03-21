@@ -7,7 +7,7 @@
 	<title>{{site.title}}</title>
     {{#getBlock "styles" document.pathToRoot "/assets/css/styles.css"}}{{/getBlock}}
 	{{#getBlock "meta"}}{{/getBlock}}
-	<script src="{{document.pathToRoot}}/js/vendor/svg.js" data-path="{{document.pathToRoot}}/js/vendor"></script>
+	<script src="{{document.pathToRoot}}/assets/js/vendor/svg.js" data-path="{{document.pathToRoot}}/assets/js/vendor"></script>
     <script src="{{document.pathToRoot}}/assets/js/vendor/modernizr.js"></script>
 </head>
 

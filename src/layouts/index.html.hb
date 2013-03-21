@@ -74,7 +74,9 @@
 			<div class="col12">
 				<h2>Open Device Labs in Germany</h2>
 				<div class="map-container">
-					<object class="map" data="{{document.pathToRoot}}/assets/img/map.svg"></object>
+					<object class="map" data="{{document.pathToRoot}}/assets/img/map.svg">
+						<img class="map" src="{{document.pathToRoot}}/assets/img/bitmaps/map.png" />
+					</object>
 				</div>
 			</div>
 		</div>

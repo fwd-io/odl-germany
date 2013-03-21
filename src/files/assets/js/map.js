@@ -3,7 +3,7 @@ window.onsvgload = function() {
         hamburg: {
             heading: "Hamburg",
             position: {
-                    x: 240,
+                    x: 236,
                     y: 140
                 },
             links: [
@@ -36,9 +36,14 @@ window.onsvgload = function() {
 
     for (var index in cities) {
         if (cities.hasOwnProperty(index)) {
+            createCircle(cities[index]);
+        }
+    }
+
+    for (var index in cities) {
+        if (cities.hasOwnProperty(index)) {
             var city = cities[index];
             
-            createCircle(city);
             createTooltip(city);
 
             function getClickFunction(city) {
@@ -52,6 +57,7 @@ window.onsvgload = function() {
                 }
             }
             city.circle.onclick = getClickFunction(city);
+            city.tooltip.onclick = getClickFunction(city);
         }
     }
 
@@ -64,17 +70,38 @@ window.onsvgload = function() {
     }
 }
 
+if (!Modernizr.svg) {
+    window.onsvgload();
+}
+
 function createCircle(city) {
-    var svg = document.getElementsByClassName("map")[0].contentDocument;
-    var circle = svg.createElementNS(svgns, 'circle');
-    circle.setAttribute('cx', city.position.x);
-    circle.setAttribute('cy', city.position.y);
-    circle.setAttribute('r', 10);
-    circle.setAttribute('fill', '#e47a52');
-    circle.setAttribute('class', 'hotspot')
-    circle.style.cursor = "pointer";
-    svg.getElementById('myGroup').ownerSVGElement.appendChild(circle);
-    city.circle = circle;
+    if (Modernizr.svg) {
+        var svg = document.getElementsByClassName("map")[0].contentDocument;
+        var circle = svg.createElementNS(svgns, 'circle');
+        circle.setAttribute('cx', city.position.x);
+        circle.setAttribute('cy', city.position.y);
+        circle.setAttribute('r', 10);
+        circle.setAttribute('fill', '#e47a52');
+        circle.setAttribute('class', 'hotspot')
+        circle.style.cursor = "pointer";
+        svg.getElementById('myGroup').ownerSVGElement.appendChild(circle);
+        city.circle = circle;
+    }
+    else {
+        var container = document.getElementsByClassName("map-container")[0];
+
+        var img = document.createElement("img");
+        img.setAttribute("src", "/assets/img/bitmaps/circle.png");
+        img.style.width = "20px";
+        img.style.position = "absolute";
+        var XOffset = ($(".map-container").width()/2)-($(".map").width()/2);
+        var mapWidthRatio = $(".map").width()/520;
+        img.style.left = (city.position.x + XOffset - 20)*mapWidthRatio + "px";
+        var mapHeightRatio = $(".map").height()/703;
+        img.style.top = (city.position.y -20)*mapHeightRatio +"px";
+        container.appendChild(img);
+        city.circle = img;
+    }
 }
 
 function createTooltip(city) {
@@ -94,6 +121,7 @@ function createTooltip(city) {
             var li = document.createElement("li");
             var linkElement = document.createElement("a");
 
+            linkElement.setAttribute("target", "_blank");
             linkElement.setAttribute("href", city.links[link].link);
             linkElement.innerHTML = city.links[link].name;
 
@@ -103,7 +131,7 @@ function createTooltip(city) {
     }
 
     tooltip.appendChild(ul);
-    container.appendChild(tooltip);
+    container.insertBefore(tooltip, null);
     tooltip.style.visibility = "hidden";
 
     city.tooltip = tooltip;
@@ -112,9 +140,13 @@ function createTooltip(city) {
 }
 
 function setTooltipPosition(city) {
-    var offset = ($(".map-container").width()/2)-($(".map").width()/2);
-    offset -= offset % 1;
     tooltip = city.tooltip;
-    tooltip.style.left = (offset + city.position.x * ($(".map").width()/500) - $(tooltip).width() - 20) + "px";
-    tooltip.style.top = (city.position.y * ($(".map").height()/660) - 89) + "px";
+
+    var XOffset = ($(".map-container").width()/2)-($(".map").width()/2);
+    var mapWidthRatio = $(".map").width()/520;
+
+    tooltip.style.left = (XOffset + city.position.x * mapWidthRatio - $(tooltip).width() - 30) + "px";
+
+    var mapHeightRatio = $(".map").height()/703;
+    tooltip.style.top = (city.position.y * mapHeightRatio - 83) + "px";
 }

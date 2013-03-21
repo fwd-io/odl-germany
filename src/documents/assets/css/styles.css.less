@@ -124,6 +124,7 @@ button.donate {
 .map {
 	margin: 0 auto;
 	display: block;
+	width: 100%;
 	max-width: 500px;
 }
 
@@ -132,6 +133,7 @@ button.donate {
 	background: rgba(255, 255, 255 , 0.75);
 	border-radius: 3px;
 	border: 2px solid #d9e7e8;
+	width: 320px;
 
 	h3 {
 		padding: 0 60px 10px 30px;
@@ -542,6 +544,15 @@ html {
 
 	.wide li {
 		display: inherit;
+	}
+
+	.tooltip {
+		left: 50% !important;
+		margin-left: -160px;
+	}
+
+	.tooltip:before, .tooltip:after {
+		display:none;
 	}
 
 	#device-table {

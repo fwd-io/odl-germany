@@ -24,10 +24,10 @@
 		</span>
 	</nav>
 
-	<header class="container padded">
+	<header class="container">
 		<div class="row">
 			<div class="col12">
-				<img src="{{document.pathToRoot}}/assets/img/header.svg">
+				<img src="{{document.pathToRoot}}/assets/img/bitmaps/header.png">
 			</div>
 		</div>
 		<div class="row">
@@ -65,6 +65,7 @@
 		</div>
 		<div class="col4 last">
 			{{{document.content.quickinfo-2}}}
+			<button class="donate"><img src="{{document.pathToRoot}}/assets/img/donate_device.svg">{{document.content.donate-button}}</button>
 		</div>
 	</div>
 	</div>

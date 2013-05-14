@@ -37,11 +37,7 @@ window.onsvgload = function() {
     for (var index in cities) {
         if (cities.hasOwnProperty(index)) {
             createCircle(cities[index]);
-        }
-    }
 
-    for (var index in cities) {
-        if (cities.hasOwnProperty(index)) {
             var city = cities[index];
             
             createTooltip(city);
@@ -108,7 +104,12 @@ function createTooltip(city) {
     var container = document.getElementsByClassName("map-container")[0];
 
     var tooltip = document.createElement("div");
-    tooltip.setAttribute("class", "tooltip");
+    if (city.position.x > 260) {
+        var arrowPosition = "left";
+    } else {
+        var arrowPosition = "right";
+    }
+    tooltip.setAttribute("class", "tooltip " + arrowPosition);
 
     var heading = document.createElement("h3");
     heading.innerHTML = city.heading;
@@ -136,16 +137,21 @@ function createTooltip(city) {
 
     city.tooltip = tooltip;
 
-    setTooltipPosition(city);
+    setTooltipPosition(city, arrowPosition);
 }
 
-function setTooltipPosition(city) {
+function setTooltipPosition(city, arrowPosition) {
     tooltip = city.tooltip;
 
-    var XOffset = ($(".map-container").width()/2)-($(".map").width()/2);
+    var mapOffset = ($(".map-container").width()/2)-($(".map").width()/2);
     var mapWidthRatio = $(".map").width()/520;
+    var XOffset = mapOffset + city.position.x * mapWidthRatio;
 
-    tooltip.style.left = (XOffset + city.position.x * mapWidthRatio - $(tooltip).width() - 30) + "px";
+    if (arrowPosition == "right") {
+        tooltip.style.left = (XOffset - $(tooltip).width() - 30) + "px";
+    } else {
+        tooltip.style.left = (XOffset + 30) + "px";
+    }
 
     var mapHeightRatio = $(".map").height()/703;
     tooltip.style.top = (city.position.y * mapHeightRatio - 83) + "px";

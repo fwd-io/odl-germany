@@ -1,4 +1,4 @@
-window.onsvgload = function() {
+function initializeMap() {
     var cities = {
         hamburg: {
             heading: "Hamburg",
@@ -156,3 +156,5 @@ function setTooltipPosition(city, arrowPosition) {
     var mapHeightRatio = $(".map").height()/703;
     tooltip.style.top = (city.position.y * mapHeightRatio - 83) + "px";
 }
+
+$(window).on("load", initializeMap);
